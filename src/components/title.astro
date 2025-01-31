@@ -7,10 +7,10 @@ interface Props {
 const { id, title } = Astro.props
 ---
 
-<article class="flex flex-col gap-1 w-fit" role="presentation">
+<article class="flex flex-col gap-1 md:w-fit truncate" role="presentation">
   <h2
     id={id}
-    class="text-3xl font-bold leading-10 m-auto text-soft-dark dark:text-soft-white"
+    class="text-2xl text-center md:text-3xl md:text-start font-bold leading-10 m-auto text-soft-dark dark:text-soft-white"
   >
     {title}
   </h2>

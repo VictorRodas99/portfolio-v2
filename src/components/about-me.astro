@@ -2,7 +2,7 @@
 import AwesomeCardContainer from './awesome-card/card-container'
 ---
 
-<article class="text-pretty flex gap-12">
+<article class="text-pretty flex flex-col md:flex-row gap-12">
   <div class="flex flex-col gap-5">
     <p>
       Me llamo Víctor Rodas, desde una edad temprana me ha apasionado la idea de
@@ -27,6 +27,6 @@ import AwesomeCardContainer from './awesome-card/card-container'
   </div>
 
   <div class="grid place-items-center">
-    <AwesomeCardContainer client:visible />
+    <AwesomeCardContainer client:media="(min-width: 768px)" />
   </div>
 </article>

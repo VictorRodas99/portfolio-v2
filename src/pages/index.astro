@@ -14,10 +14,12 @@ import RubiksCube from '@/components/rubiks-cube'
   title="Porftolio de Victor Rodas - Desarrollador y Programador Web"
   description="Mira los proyectos de Victor Rodas. Desarrollador Web. Especializado en construir aplicaciones con experiencias de usuario increíbles."
 >
-  <main class="pt-56 px-72 flex flex-col gap-40">
-    <section class="w-[60%] flex flex-col gap-6 text-white">
-      <h1 class="text-5xl font-bold">Hey, soy Víctor</h1>
-      <p class="text-xl">
+  <main class="md:pt-56 px-6 md:px-24 lg:px-72 flex flex-col gap-20 md:gap-40">
+    <section
+      class="pt-56 md:pt-0 w-full h-screen md:h-auto lg:w-[60%] flex flex-col gap-6 text-white"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold">Hey, soy Víctor</h1>
+      <p class="text-base md:text-xl text-pretty">
         <span id="experience-text" class="font-bold">+1 año de experiencia</span
         >. Soy un Desarrollador Front-End de Paraguay, especializado en
         desarrollo web y móvil, apasionado por la creación de aplicaciones
@@ -41,19 +43,19 @@ import RubiksCube from '@/components/rubiks-cube'
       </nav>
     </section>
 
-    <RubiksCube size={400} client:visible />
+    <RubiksCube size={400} client:media="(min-width:768px)" />
 
-    <section class="flex flex-col gap-16">
+    <section class="flex flex-col gap-8 md:gap-16">
       <Title id="experience" title="Experiencia laboral" />
       <Experience />
     </section>
 
-    <section class="flex flex-col gap-16">
+    <section class="flex flex-col gap-8 md:gap-16">
       <Title id="projects" title="Proyectos" />
       <Projects />
     </section>
 
-    <section class="flex flex-col gap-16 mb-24">
+    <section class="flex flex-col gap-8 md:gap-16 mb-24">
       <Title id="about-me" title="Sobre mí" />
       <AboutMe />
     </section>
