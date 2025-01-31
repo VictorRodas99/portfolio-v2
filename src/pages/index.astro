@@ -7,6 +7,7 @@ import Title from '@/components/title.astro'
 import Experience from '@/components/experience.astro'
 import Projects from '@/components/projects.astro'
 import AboutMe from '@/components/about-me.astro'
+import RubiksCube from '@/components/rubiks-cube'
 ---
 
 <Layout
@@ -39,6 +40,8 @@ import AboutMe from '@/components/about-me.astro'
         </SocialAnchor>
       </nav>
     </section>
+
+    <RubiksCube size={400} client:visible />
 
     <section class="flex flex-col gap-16">
       <Title id="experience" title="Experiencia laboral" />
