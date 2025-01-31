@@ -1,22 +1,55 @@
+---
+import Header from './header.astro'
+import '@fontsource-variable/onest'
+import LavaLamp from '@/components/lava-lamp'
+
+interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="overflow-x-hidden bg-noon dark:bg-midnight text-soft-dark dark:text-soft-white"
+  >
+    <Header />
+    <LavaLamp client:load />
+    <div
+      class="absolute top-[20%] w-[150%] h-screen z-[-2] bg-noon dark:bg-midnight -rotate-[30deg]"
+    >
+    </div>
+    <div
+      class="absolute w-screen h-screen z-[-3] bg-gray-500 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100"
+    >
+    </div>
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Onest Variable', sans-serif;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 </style>
