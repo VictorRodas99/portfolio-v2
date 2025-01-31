@@ -1,0 +1,9 @@
+<a
+  class:list={[
+    'py-2 px-4 bg-light-secondary dark:bg-secondary rounded-full text-soft-dark dark:text-soft-white hover:bg-soft-white hover:text-soft-dark transition-colors duration-200',
+    Astro.props?.class
+  ]}
+  {...Astro.props}
+>
+  <slot />
+</a>
