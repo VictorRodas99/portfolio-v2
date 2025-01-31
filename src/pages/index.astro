@@ -1,11 +1,66 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import SocialAnchor from '@/components/social-button.astro'
+import Layout from '../layouts/Layout.astro'
+import MailPlusIcon from '@/components/icons/email'
+import LinkedInIcon from '@/components/icons/linkedin'
+import Title from '@/components/title.astro'
+import Experience from '@/components/experience.astro'
+import Projects from '@/components/projects.astro'
+import AboutMe from '@/components/about-me.astro'
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Porftolio de Victor Rodas - Desarrollador y Programador Web"
+  description="Mira los proyectos de Victor Rodas. Desarrollador Web. Especializado en construir aplicaciones con experiencias de usuario increíbles."
+>
+  <main class="pt-56 px-72 flex flex-col gap-40">
+    <section class="w-[60%] flex flex-col gap-6 text-white">
+      <h1 class="text-5xl font-bold">Hey, soy Víctor</h1>
+      <p class="text-xl">
+        <span id="experience-text" class="font-bold">+1 año de experiencia</span
+        >. Soy un Desarrollador Front-End de Paraguay, especializado en
+        desarrollo web y móvil, apasionado por la creación de aplicaciones
+        geniales.
+      </p>
+      <nav class="flex gap-3">
+        <SocialAnchor
+          href="mailto:victormrodas99@gmail.com"
+          class="flex gap-2 items-center"
+        >
+          <MailPlusIcon className="size-4" />
+          Contactame
+        </SocialAnchor>
+        <SocialAnchor
+          href="https://www.linkedin.com/in/victor-rodas-dev/"
+          class="flex gap-2 items-center"
+        >
+          <LinkedInIcon className="size-4" />
+          LinkedIn
+        </SocialAnchor>
+      </nav>
+    </section>
+
+    <section class="flex flex-col gap-16">
+      <Title id="experience" title="Experiencia laboral" />
+      <Experience />
+    </section>
+
+    <section class="flex flex-col gap-16">
+      <Title id="projects" title="Proyectos" />
+      <Projects />
+    </section>
+
+    <section class="flex flex-col gap-16 mb-24">
+      <Title id="about-me" title="Sobre mí" />
+      <AboutMe />
+    </section>
+  </main>
 </Layout>
+
+<style>
+  #experience-text {
+    background: linear-gradient(to right, #ff6b08, #eedd44);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+</style>
