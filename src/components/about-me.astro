@@ -1,29 +1,25 @@
 ---
 import AwesomeCardContainer from './awesome-card/card-container'
+import SUPPORTED_LANGUAGES, { DEFAULT_LANGUAGE } from '@/supported-languages'
+import type { Language } from '@/supported-languages'
+import contentJSX from '@/components/about-me-localized-content'
+
+interface Props {
+  lang?: Language
+}
+
+const lang = Astro.props.lang ?? DEFAULT_LANGUAGE
+
+if (!Object.values(SUPPORTED_LANGUAGES).includes(lang)) {
+  throw new Error(`Unsupported language: ${lang}`)
+}
+
+const Content = contentJSX[lang]
 ---
 
 <article class="text-pretty flex flex-col md:flex-row gap-12">
   <div class="flex flex-col gap-5">
-    <p>
-      Me llamo Víctor Rodas, desde una edad temprana me ha apasionado la idea de
-      crear cosas desde cero y entender su funcionamiento y he encontrado en la
-      programación una forma gratificante de seguir esa pasión y el deseo de
-      crear cosas.
-    </p>
-    <p>
-      <span class="text-accent font-bold"
-        >Entre mis éxitos destaco la creación de una plataforma de turismo</span
-      > que permite la observación de diferentes puntos destacados del Ñeembucú;
-      <span class="text-accent font-bold"
-        >llegando a competir en la IX edición de la TECNOCIENCIA</span
-      >, realizada en mi localidad.
-    </p>
-    <p>
-      Además, cuento con <span class="text-accent font-bold"
-        >experiencia desarrollando aplicaciones web</span
-      >
-      ayudando a diferentes negocios para su crecimiento.
-    </p>
+    <Content />
   </div>
 
   <div class="grid place-items-center">
