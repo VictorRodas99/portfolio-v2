@@ -1,0 +1,52 @@
+{
+  "page": {
+    "title": "Porftolio de Victor Rodas - Desarrollador y Programador Web",
+    "description": "Mira los proyectos de Victor Rodas. Desarrollador Web. Especializado en construir aplicaciones con experiencias de usuario increíbles."
+  },
+  "hero": {
+    "title": "Hey, soy Víctor",
+    "subtitle": {
+      "experience": "+1 año de experiencia",
+      "description": "Soy un Desarrollador Front-End de Paraguay, especializado en desarrollo web y móvil, apasionado por la creación de aplicaciones geniales."
+    }
+  },
+  "titles": {
+    "experience": "Experiencia Laboral",
+    "projects": "Proyectos",
+    "about": "Sobre mí"
+  },
+  "experiences": [
+    {
+      "date": "Actualmente...",
+      "title": "Desarrollador Front-End",
+      "company": "Binario Informática",
+      "description": "Responsable de la creación de utilidades y componentes para el desarrollo de aplicaciones web. Mejora significativa de la experiencia de usuario y el rendimiento de aplicaciones web."
+    },
+    {
+      "date": "Noviembre 2023",
+      "title": "Analista de Sistemas, Desarrollador Front-End",
+      "company": "CODYS S.A",
+      "description": "Responsable de la planificación de proyectos. Identificación de problemas relacionados con cron-jobs en un sistema de alta demanda en España."
+    },
+    {
+      "date": "Agosto 2022",
+      "title": "Desarrollador Front-End",
+      "company": "Freelance",
+      "description": "Principal desarrollador y diseñador de interfaces de usuario. Integración exitosa del sistema con visualización de datos dinámicos en tiempo real desde diferentes dispositivos."
+    }
+  ],
+  "projects": {
+    "explora-neembucu": {
+      "name": "Explora Ñeembucú – Descubre los encantos de Ñeembucú, Paraguay",
+      "description": "Una página web desarrollada con Astro y React que recopila información sobre hoteles, restaurantes y puntos turísticos relevantes de diferentes zonas de Ñeembucú. Una guía de turismo única."
+    },
+    "just-music": {
+      "name": "just-music – Una hermosa interfaz de línea de comandos",
+      "description": "Una línea de comandos que permite reproducir música de YouTube sin necesidad de un navegador."
+    },
+    "info-shop": {
+      "name": "InfoShop - Ecommerce FullStack",
+      "description": "Desarrollado con React y Hono. Esta aplicación te mantiene al día con los últimos productos de informática y electrónica. El catálogo se actualiza automáticamente de manera semanal."
+    }
+  }
+}

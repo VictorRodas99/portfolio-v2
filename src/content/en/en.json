@@ -1,0 +1,52 @@
+{
+  "page": {
+    "title": "Victor Rodas' Portfolio - Developer and Web Programmer",
+    "description": "Check out Victor Rodas' projects. Web Developer. Specialized in building applications with amazing user experiences."
+  },
+  "hero": {
+    "title": "Hey, I'm Víctor",
+    "subtitle": {
+      "experience": "+1 year of experience",
+      "description": "I'm a Front-End Developer from Paraguay, specialized in web and mobile development, passionate about creating awesome applications."
+    }
+  },
+  "titles": {
+    "experience": "Work Experience",
+    "projects": "Projects",
+    "about": "About Me"
+  },
+  "experiences": [
+    {
+      "date": "Currently...",
+      "title": "Front-End Developer",
+      "company": "Binario Informática",
+      "description": "Responsible for creating utilities and components for web application development. Significant improvement in user experience and performance of web applications."
+    },
+    {
+      "date": "November 2023",
+      "title": "Systems Analyst, Front-End Developer",
+      "company": "CODYS S.A",
+      "description": "Responsible for project planning. Identification of problems related to cron-jobs in a high-demand system in Spain."
+    },
+    {
+      "date": "August 2022",
+      "title": "Front-End Developer",
+      "company": "Freelance",
+      "description": "Main developer and user interface designer. Successful integration of the system with real-time dynamic data visualization from different devices."
+    }
+  ],
+  "projects": {
+    "explora-neembucu": {
+      "name": "Explora Ñeembucú – Discover the charms of Ñeembucú, Paraguay",
+      "description": "A website developed with Astro and React that gathers information about hotels, restaurants, and relevant tourist spots in different areas of Ñeembucú. A unique tourism guide."
+    },
+    "just-music": {
+      "name": "just-music – A beautiful command line interface",
+      "description": "A command line interface that allows you to play music from YouTube without the need for a browser."
+    },
+    "info-shop": {
+      "name": "InfoShop - FullStack Ecommerce",
+      "description": "Developed with React and Hono. This application keeps you up to date with the latest computer and electronics products. The catalog is automatically updated weekly."
+    }
+  }
+}
