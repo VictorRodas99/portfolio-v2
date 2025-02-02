@@ -13,6 +13,7 @@
     "@astrojs/react": "4.2.0",
     "@astrojs/tailwind": "5.1.5",
     "@fontsource-variable/onest": "5.1.1",
+    "@radix-ui/react-dropdown-menu": "2.1.5",
     "@tweenjs/tween.js": "25.0.0",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
@@ -22,7 +23,7 @@
     "postprocessing": "6.36.6",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "tailwind-merge": "^3.0.1",
+    "tailwind-merge": "3.0.1",
     "tailwindcss": "3.4.17",
     "three": "0.172.0",
     "three-addons": "1.2.0"
