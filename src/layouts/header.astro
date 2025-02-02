@@ -1,5 +1,36 @@
 ---
 import HeaderSettings from './partials/header-settings'
+import SUPPORTED_LANGUAGES, {
+  DEFAULT_LANGUAGE,
+  type Language
+} from '@/supported-languages'
+
+interface Props {
+  lang?: Language
+}
+
+const lang = Astro.props.lang ?? DEFAULT_LANGUAGE
+
+if (!Object.values(SUPPORTED_LANGUAGES).includes(lang)) {
+  throw new Error(`Unsupported language: ${lang}`)
+}
+
+const content = {
+  es: {
+    experience: 'Experiencia',
+    projects: 'Proyectos',
+    aboutMe: 'Sobre mí',
+    contact: 'Contacto'
+  },
+  en: {
+    experience: 'Experience',
+    projects: 'Projects',
+    aboutMe: 'About me',
+    contact: 'Contact'
+  }
+}
+
+const text = content[lang]
 ---
 
 <header
@@ -13,28 +44,28 @@ import HeaderSettings from './partials/header-settings'
       <li>
         <a
           class="hover:text-gray-300 transition-colors duration-200"
-          href="/#experience">Experiencia</a
+          href="/#experience">{text.experience}</a
         >
       </li>
       <li>
         <a
           class="hover:text-gray-300 transition-colors duration-200"
-          href="/#projects">Proyectos</a
+          href="/#projects">{text.projects}</a
         >
         <li>
           <a
             class="hover:text-gray-300 transition-colors duration-200"
-            href="/#about-me">Sobre mí</a
+            href="/#about-me">{text.aboutMe}</a
           >
         </li>
         <li class="hidden md:block">
           <a
             class="hover:text-gray-300 transition-colors duration-200"
-            href="mailto:victormrodas99@gmail.com">Contacto</a
+            href="mailto:victormrodas99@gmail.com">{text.contact}</a
           >
         </li>
         <li>
-          <HeaderSettings client:load />
+          <HeaderSettings currentLanguage={lang} client:only="react" />
         </li>
       </li>
     </ul>

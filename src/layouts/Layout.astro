@@ -3,17 +3,19 @@ import Header from './header.astro'
 import '@fontsource-variable/onest'
 import LavaLamp from '@/components/lava-lamp'
 import '@/css/globals.css'
+import type { Language } from '@/supported-languages'
 
 interface Props {
+  lang: Language
   title: string
   description: string
 }
 
-const { title, description } = Astro.props
+const { title, description, lang } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -25,7 +27,7 @@ const { title, description } = Astro.props
   <body
     class="overflow-x-hidden bg-noon dark:bg-midnight text-soft-dark dark:text-soft-white"
   >
-    <Header />
+    <Header lang={lang} />
     <LavaLamp client:load />
     <div
       class="absolute hidden md:block top-[70%] lg:top-[20%] w-full lg:w-[150%] h-screen z-[-2] bg-noon dark:bg-midnight lg:-rotate-[30deg]"
