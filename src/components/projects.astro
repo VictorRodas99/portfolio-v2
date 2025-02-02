@@ -1,7 +1,23 @@
 ---
-import projects from '@/lib/data/projects'
+import getProjects from '@/lib/data/projects'
 import GithubIcon from '@/components/icons/github'
 import LinkIcon from '@/components/icons/link'
+import SUPPORTED_LANGUAGES, {
+  DEFAULT_LANGUAGE,
+  type Language
+} from '@/supported-languages'
+
+interface Props {
+  lang?: Language
+}
+
+const lang = Astro.props.lang ?? DEFAULT_LANGUAGE
+
+if (!Object.values(SUPPORTED_LANGUAGES).includes(lang)) {
+  throw new Error(`Unsupported language: ${lang}`)
+}
+
+const projects = getProjects(lang)
 ---
 
 <div class="flex flex-col gap-20">
