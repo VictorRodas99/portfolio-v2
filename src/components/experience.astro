@@ -1,6 +1,12 @@
 ---
+import type { Experience } from '@/types/experience'
 import ExperienceItem from './experience-item.astro'
-import { experiences } from '@/lib/data/experience'
+
+interface Props {
+  experiences: Experience[]
+}
+
+const { experiences } = Astro.props
 ---
 
 <ol class="relative">
