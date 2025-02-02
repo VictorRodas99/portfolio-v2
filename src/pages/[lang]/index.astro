@@ -1,6 +1,6 @@
 ---
 import SocialAnchor from '@/components/social-button.astro'
-import Layout from '../layouts/Layout.astro'
+import Layout from '@/layouts/Layout.astro'
 import MailPlusIcon from '@/components/icons/email'
 import LinkedInIcon from '@/components/icons/linkedin'
 import Title from '@/components/title.astro'
@@ -8,22 +8,40 @@ import Experience from '@/components/experience.astro'
 import Projects from '@/components/projects.astro'
 import AboutMe from '@/components/about-me.astro'
 import RubiksCube from '@/components/rubiks-cube'
+import SUPPORTED_LANGUAGES from '@/supported-languages'
+import { getCollection } from 'astro:content'
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: SUPPORTED_LANGUAGES.english } },
+    { params: { lang: SUPPORTED_LANGUAGES.spanish } }
+  ] as const
+}
+
+const { lang } = Astro.params
+
+if (!Object.values(SUPPORTED_LANGUAGES).includes(lang)) {
+  Astro.redirect('/404')
+}
+
+const [collection] = await getCollection(lang)
+const content = collection.data
 ---
 
 <Layout
-  title="Porftolio de Victor Rodas - Desarrollador y Programador Web"
-  description="Mira los proyectos de Victor Rodas. Desarrollador Web. Especializado en construir aplicaciones con experiencias de usuario increíbles."
+  lang={lang}
+  title={content.page.title}
+  description={content.page.description}
 >
   <main class="md:pt-56 px-6 md:px-24 lg:px-72 flex flex-col gap-20 md:gap-40">
     <section
       class="pt-56 md:pt-0 w-full h-screen md:h-auto lg:w-[60%] flex flex-col gap-6 text-white"
     >
-      <h1 class="text-4xl md:text-5xl font-bold">Hey, soy Víctor</h1>
+      <h1 class="text-4xl md:text-5xl font-bold">{content.hero.title}</h1>
       <p class="text-base md:text-xl text-pretty">
-        <span id="experience-text" class="font-bold">+1 año de experiencia</span
-        >. Soy un Desarrollador Front-End de Paraguay, especializado en
-        desarrollo web y móvil, apasionado por la creación de aplicaciones
-        geniales.
+        <span id="experience-text" class="font-bold"
+          >{content.hero.subtitle.experience}</span
+        >. {content.hero.subtitle.description}
       </p>
       <nav class="flex gap-3">
         <SocialAnchor
@@ -31,7 +49,7 @@ import RubiksCube from '@/components/rubiks-cube'
           class="flex gap-2 items-center"
         >
           <MailPlusIcon className="size-4" />
-          Contactame
+          {lang === SUPPORTED_LANGUAGES.spanish ? 'Contactame' : 'Contact me'}
         </SocialAnchor>
         <SocialAnchor
           href="https://www.linkedin.com/in/victor-rodas-dev/"
@@ -46,18 +64,18 @@ import RubiksCube from '@/components/rubiks-cube'
     <RubiksCube size={400} client:media="(min-width:768px)" />
 
     <section class="flex flex-col gap-8 md:gap-16">
-      <Title id="experience" title="Experiencia laboral" />
-      <Experience />
+      <Title id="experience" title={content.titles.experience} />
+      <Experience experiences={content.experiences} />
     </section>
 
     <section class="flex flex-col gap-8 md:gap-16">
-      <Title id="projects" title="Proyectos" />
-      <Projects />
+      <Title id="projects" title={content.titles.projects} />
+      <Projects lang={lang} />
     </section>
 
     <section class="flex flex-col gap-8 md:gap-16 mb-24">
-      <Title id="about-me" title="Sobre mí" />
-      <AboutMe />
+      <Title id="about-me" title={content.titles.about} />
+      <AboutMe lang={lang} />
     </section>
   </main>
 </Layout>
