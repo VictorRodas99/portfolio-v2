@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n'
 import HeaderSettings from './partials/header-settings'
 import SUPPORTED_LANGUAGES, {
   DEFAULT_LANGUAGE,
@@ -31,6 +32,7 @@ const content = {
 }
 
 const text = content[lang]
+const localeUrl = getRelativeLocaleUrl(lang)
 ---
 
 <header
@@ -40,27 +42,29 @@ const text = content[lang]
   <nav
     class="flex bg-light-secondary dark:bg-secondary text-soft-dark dark:text-soft-white py-2 px-5 rounded-full shadow-md"
   >
-    <ul class="flex gap-5 items-center [&>li]:grid [&>li]:place-items-center">
+    <ul
+      class="flex gap-3 md:gap-5 items-center [&>li]:grid [&>li]:place-items-center"
+    >
       <li>
         <a
           class="hover:text-gray-300 transition-colors duration-200"
-          href="/#experience">{text.experience}</a
+          href={`${localeUrl}#experience`}>{text.experience}</a
         >
       </li>
       <li>
         <a
           class="hover:text-gray-300 transition-colors duration-200"
-          href="/#projects">{text.projects}</a
+          href={`${localeUrl}#projects`}>{text.projects}</a
         >
         <li>
           <a
             class="hover:text-gray-300 transition-colors duration-200"
-            href="/#about-me">{text.aboutMe}</a
+            href={`${localeUrl}#about-me`}>{text.aboutMe}</a
           >
         </li>
-        <li class="hidden md:block">
+        <li>
           <a
-            class="hover:text-gray-300 transition-colors duration-200"
+            class="hidden md:block hover:text-gray-300 transition-colors duration-200"
             href="mailto:victormrodas99@gmail.com">{text.contact}</a
           >
         </li>
