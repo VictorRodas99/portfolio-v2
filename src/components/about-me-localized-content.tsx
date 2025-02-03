@@ -11,7 +11,7 @@ function SpanishContent() {
         <span className="text-accent font-bold">
           Entre mis éxitos destaco la creación de una plataforma de turismo
         </span>{' '}
-        que permite la observación de diferentes puntos destacados del Ñeembucú;
+        que permite la observación de diferentes puntos destacados del Ñeembucú;{' '}
         <span className="text-accent font-bold">
           llegando a competir en la IX edición de la TECNOCIENCIA
         </span>
@@ -20,7 +20,7 @@ function SpanishContent() {
       <p>
         Además, cuento con{' '}
         <span className="text-accent font-bold">
-          experiencia desarrollando aplicaciones web
+          experiencia desarrollando aplicaciones web{' '}
         </span>
         ayudando a diferentes negocios para su crecimiento.
       </p>
@@ -33,15 +33,15 @@ function EnglishContent() {
     <>
       <p>
         My name is Víctor Rodas, from an early age I have been passionate about
-        the idea of creating things from scratch and understanding how they work
-        and I have found in programming a rewarding way to follow that passion
-        and the desire to create things.
+        the idea of creating things from scratch and understanding how they
+        work, and I have found in programming a rewarding way to follow that
+        passion and the desire to create things.
       </p>
       <p>
         <span className="text-accent font-bold">
           Among my successes I highlight the creation of a tourism platform
         </span>{' '}
-        that allows the observation of different highlights of Ñeembucú;{' '}
+        that allows the observation of different places of Ñeembucú;{' '}
         <span className="text-accent font-bold">
           reaching the IX edition of TECNOCIENCIA
         </span>
