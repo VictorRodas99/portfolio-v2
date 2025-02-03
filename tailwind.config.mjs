@@ -17,7 +17,22 @@ for (const color of deprecatedColors) {
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: 0.1 },
+          '100%': { opacity: 1 }
+        },
+        'scale-up-fade': {
+          '0%': { transform: 'scale(0.3)', opacity: 0.1 },
+          '100%': { transform: 'scale(1)', opacity: 1 }
+        }
+      },
+      animation: {
+        'scale-up': 'scale-up-fade 1.5s cubic-bezier(0.25, 0.1, 0.25, 1)',
+        'fade-in': 'fade-in 1.5s ease-in-out'
+      }
+    },
     colors: {
       background: 'hsl(var(--background))',
       foreground: 'hsl(var(--foreground))',
