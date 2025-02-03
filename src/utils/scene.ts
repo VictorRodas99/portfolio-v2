@@ -19,7 +19,7 @@ export function createLights() {
   rectLightOne.rotation.x = Math.PI * 1.5
   rectLightOne.rotation.y = Math.PI / 4
 
-  const rectLightTwo = new RectAreaLight(0xffffff, 5, 20, 20)
+  const rectLightTwo = new RectAreaLight(0xffffff, 10, 20, 20)
   rectLightTwo.position.set(0, -20, 0)
   rectLightTwo.rotation.x = Math.PI / 2
 
