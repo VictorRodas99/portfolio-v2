@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Scene, PerspectiveCamera, Quaternion, Euler } from 'three'
 import { Group } from '@tweenjs/tween.js'
 
@@ -20,6 +20,7 @@ export default function RubiksCube({
   const containerRef = useRef<HTMLDivElement>(null)
   const isDraggingRef = useRef(false)
   const previousMousePositionRef = useRef({ x: 0, y: 0 })
+  const [isCubeRendered, setIsCubeRendered] = useState(false)
 
   useEffect(() => {
     if (!containerRef.current) return
@@ -62,6 +63,8 @@ export default function RubiksCube({
       cubeColor: color ?? '#121212'
     })
     scene.add(cube)
+
+    setIsCubeRendered(true)
 
     tRotate({
       cube: cube.children[0].children[0],
@@ -150,22 +153,34 @@ export default function RubiksCube({
         `size-[${size}px]`
       )}
     >
-      <div className="relative transform-gpu grayscale md:w-[50px] hidden items-center justify-center lg:flex lg:animate-[open-scale-up-fade_1.5s_ease-in-out] before:from-green-100 before:to-yellow-100 before:absolute before:left-0 before:top-0 before:block before:h-full before:w-full before:rounded-full before:bg-gradient-to-br before:blur-[150px] before:content-['']">
+      <div className="relative transform-gpu md:w-[50px] hidden items-center justify-center lg:flex before:from-green-100 before:to-yellow-100 before:absolute before:left-0 before:top-0 before:block before:h-full before:w-full before:rounded-full before:bg-gradient-to-br before:blur-[150px] before:content-['']">
         <div
           ref={containerRef}
-          className={cn('size-[400px] relative', `size-[${size}px]`)}
-          style={{
-            // @ts-ignore
-            '& canvas': {
-              display: 'block',
-              position: 'absolute',
-              zIndex: 100,
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%)'
+          className={cn(
+            'size-[400px] relative',
+            `size-[${size}px] transition-all`,
+            {
+              'lg:animate-scale-up': isCubeRendered
+            },
+            {
+              hidden: !isCubeRendered
             }
-          }}
-        />
+          )}
+        >
+          <div
+            style={{
+              // @ts-ignore
+              '& canvas': {
+                display: 'block',
+                position: 'absolute',
+                zIndex: 100,
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)'
+              }
+            }}
+          ></div>
+        </div>
       </div>
     </div>
   )
