@@ -3,14 +3,31 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger
 } from '@/components/dropdown-menu'
-import { MoonIcon, GearIcon } from '@/components/icons'
+import {
+  MoonIcon,
+  GearIcon,
+  SunIcon,
+  MonitorSettingsIcon
+} from '@/components/icons'
 import { SpainIcon, UnitedStatesIcon } from '@/components/icons/countries'
 import type { Language } from '@/supported-languages'
 import SUPPORTED_LANGUAGES, { LANGUAGE_LABEL } from '@/supported-languages'
-import { useMemo, type SVGProps } from 'react'
+import {
+  setTheme,
+  useSystemPreferenceTheme as _useSystemPreferenceTheme,
+  type Theme,
+  THEMES,
+  getSavedTheme
+} from '@/utils/dark-mode'
+import { DropdownMenuGroup } from '@radix-ui/react-dropdown-menu'
+import { useEffect, useMemo, useState, type SVGProps } from 'react'
 
 const LanguageIcon = ({
   lang,
@@ -25,18 +42,60 @@ const LanguageIcon = ({
   return null
 }
 
+const getTextBasedOnLocale = (lang: Language) => {
+  if (!Object.values(SUPPORTED_LANGUAGES).includes(lang)) {
+    throw new Error(`Unsupported language ${lang}`)
+  }
+
+  const text = {
+    es: {
+      label: 'Configuraciones',
+      theme: {
+        dark: 'Oscuro',
+        light: 'Claro',
+        system: 'Sistema'
+      }
+    },
+    en: {
+      label: 'Settings',
+      theme: {
+        dark: 'Dark',
+        light: 'Light',
+        system: 'System'
+      }
+    }
+  }
+
+  return text[lang]
+}
+
+const CurrentThemeIcon = ({
+  theme,
+  ...props
+}: { theme: Theme | null } & SVGProps<SVGSVGElement>) => {
+  if (!theme) {
+    return <MonitorSettingsIcon {...props} />
+  }
+
+  if (theme === THEMES.dark) {
+    return <MoonIcon {...props} />
+  }
+
+  return <SunIcon {...props} />
+}
+
 export default function HeaderSettings({
   currentLanguage
 }: {
   currentLanguage: Language
 }) {
-  const label = useMemo(
-    () =>
-      currentLanguage === SUPPORTED_LANGUAGES.spanish
-        ? 'Configuraciones'
-        : 'Settings',
+  const text = useMemo(
+    () => getTextBasedOnLocale(currentLanguage),
     [currentLanguage]
   )
+
+  const [currentTheme, setCurrentTheme] = useState(getSavedTheme())
+  const [themeLabel, setThemeLabel] = useState(text.theme.system)
 
   const toggledLanguage = useMemo(
     () =>
@@ -56,13 +115,28 @@ export default function HeaderSettings({
     return currentURL.toString()
   }, [currentLanguage, toggledLanguage])
 
+  const handleClickOnTheme = (theme?: Theme) => {
+    if (!theme) {
+      setThemeLabel(text.theme.system)
+      _useSystemPreferenceTheme()
+      return
+    }
+
+    setThemeLabel(theme === THEMES.dark ? text.theme.dark : text.theme.light)
+    setTheme(theme)
+  }
+
+  useEffect(() => {
+    setCurrentTheme(getSavedTheme())
+  }, [themeLabel])
+
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger>
         <GearIcon className="size-[18px]" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-secondary border-primary text-soft-white">
-        <DropdownMenuLabel>{label}</DropdownMenuLabel>
+      <DropdownMenuContent className="bg-light-secondary dark:bg-primary border-light-primary dark:border-primary text-soft-dark dark:text-soft-white">
+        <DropdownMenuLabel>{text.label}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="cursor-pointer">
           <a href={toggledURL} className="flex gap-2 items-center">
@@ -70,10 +144,35 @@ export default function HeaderSettings({
             {LANGUAGE_LABEL[toggledLanguage] ?? null}
           </a>
         </DropdownMenuItem>
-        <DropdownMenuItem className="cursor-pointer">
-          <MoonIcon />
-          Oscuro
-        </DropdownMenuItem>
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <CurrentThemeIcon theme={currentTheme} />
+              <span>{themeLabel}</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent className="bg-light-secondary dark:bg-secondary text-soft-dark dark:text-soft-white border-light-primary dark:border-primary">
+                <DropdownMenuItem
+                  onClick={() => handleClickOnTheme(THEMES.dark)}
+                >
+                  <MoonIcon />
+                  <span>{text.theme.dark}</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => handleClickOnTheme(THEMES.light)}
+                >
+                  <SunIcon />
+                  <span>{text.theme.light}</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => handleClickOnTheme()}>
+                  <MonitorSettingsIcon />
+                  <span>{text.theme.system}</span>
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   )
