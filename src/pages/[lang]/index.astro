@@ -1,8 +1,7 @@
 ---
 import SocialAnchor from '@/components/social-button.astro'
 import Layout from '@/layouts/Layout.astro'
-import MailPlusIcon from '@/components/icons/email'
-import LinkedInIcon from '@/components/icons/linkedin'
+import { MailPlusIcon } from '@/components/icons'
 import Title from '@/components/title.astro'
 import Experience from '@/components/experience.astro'
 import Projects from '@/components/projects.astro'
@@ -10,6 +9,7 @@ import AboutMe from '@/components/about-me.astro'
 import RubiksCube from '@/components/rubiks-cube'
 import SUPPORTED_LANGUAGES from '@/supported-languages'
 import { getCollection } from 'astro:content'
+import LinkedInIcon from '@/components/icons/brands'
 
 export function getStaticPaths() {
   return [

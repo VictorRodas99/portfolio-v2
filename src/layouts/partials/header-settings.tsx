@@ -6,10 +6,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/dropdown-menu'
-import MoonIcon from '@/components/icons/moon'
-import GearIcon from '@/components/icons/settings'
-import SpainIcon from '@/components/icons/spain'
-import UnitedStatesIcon from '@/components/icons/united-states'
+import { MoonIcon, GearIcon } from '@/components/icons'
+import { SpainIcon, UnitedStatesIcon } from '@/components/icons/countries'
 import type { Language } from '@/supported-languages'
 import SUPPORTED_LANGUAGES, { LANGUAGE_LABEL } from '@/supported-languages'
 import { useMemo, type SVGProps } from 'react'

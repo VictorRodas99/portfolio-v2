@@ -1,14 +1,22 @@
-import AstroIcon from '@/components/icons/astro'
-import TailwindCSSIcon from '@/components/icons/tailwind'
-import ReactIcon from '@/components/icons/react'
-import TypeScriptIcon from '@/components/icons/typescript'
-import SupabaseIcon from '@/components/icons/supabase'
-import BashIcon from '@/components/icons/bash'
-import PowershellIcon from '@/components/icons/powershell'
-import JavaScriptIcon from '@/components/icons/javascript'
-import CloudflareIcon from '@/components/icons/cloudflare'
-import HonoIcon from '@/components/icons/hono'
-import CSSIcon from '@/components/icons/css'
+import {
+  AstroIcon,
+  HonoIcon,
+  TailwindCSSIcon
+} from '@/components/icons/frameworks'
+
+import {
+  CloudflareIcon,
+  ReactIcon,
+  SupabaseIcon
+} from '@/components/icons/tools'
+
+import {
+  BashIcon,
+  CSSIcon,
+  JavaScriptIcon,
+  PowershellIcon,
+  TypeScriptIcon
+} from '@/components/icons/languages'
 
 import spanishContent from '@/content/es/es.json'
 import englishContent from '@/content/en/en.json'
