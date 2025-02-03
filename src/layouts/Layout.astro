@@ -56,3 +56,8 @@ const { title, description, lang } = Astro.props
     }
   }
 </style>
+
+<script>
+  import { getUserThemePreference } from '@/utils/dark-mode'
+  getUserThemePreference()
+</script>
