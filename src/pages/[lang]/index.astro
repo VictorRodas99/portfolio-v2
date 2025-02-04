@@ -35,9 +35,11 @@ const content = collection.data
 >
   <main class="md:pt-56 px-6 md:px-24 lg:px-72 flex flex-col gap-20 md:gap-40">
     <section
-      class="pt-56 md:pt-0 w-full h-screen md:h-auto lg:w-[60%] flex flex-col gap-6 text-white"
+      class="pt-56 md:pt-0 w-full h-screen md:h-auto lg:w-[60%] flex flex-col gap-6 text-soft-dark dark:text-soft-white"
     >
-      <h1 class="text-4xl md:text-5xl font-bold">{content.hero.title}</h1>
+      <h1 class="text-4xl md:text-5xl font-bold">
+        {content.hero.title}
+      </h1>
       <p class="text-base md:text-xl text-pretty">
         <span id="experience-text" class="font-bold"
           >{content.hero.subtitle.experience}</span
@@ -46,14 +48,14 @@ const content = collection.data
       <nav class="flex gap-3">
         <SocialAnchor
           href="mailto:victormrodas99@gmail.com"
-          class="flex gap-2 items-center"
+          class="flex gap-2 items-center text-soft-white"
         >
           <MailPlusIcon className="size-4" />
           {lang === SUPPORTED_LANGUAGES.spanish ? 'Contactame' : 'Contact me'}
         </SocialAnchor>
         <SocialAnchor
           href="https://www.linkedin.com/in/victor-rodas-dev/"
-          class="flex gap-2 items-center"
+          class="flex gap-2 items-center text-soft-white"
         >
           <LinkedInIcon className="size-4" />
           LinkedIn

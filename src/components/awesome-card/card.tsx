@@ -52,7 +52,7 @@ export default function AwesomeCard({ flavor }: CardProps) {
   return (
     <Atropos
       className="size-[100px] lg:size-[220px] bg-[#000214] rounded-2xl"
-      shadowScale={1.05}
+      shadow={false}
     >
       <div className="relative w-full h-full overflow-hidden rounded-2xl">
         <div className="absolute h-full">

@@ -51,12 +51,14 @@ const projects = getProjects(lang)
           </div>
 
           <div class="flex flex-col gap-5">
-            <p class="text-soft-white/70 text-pretty">{project.description}</p>
+            <p class="text-soft-dark/70 dark:text-soft-white/70 text-pretty">
+              {project.description}
+            </p>
             <div class="flex gap-5">
               {project.github && (
                 <a
                   href={project.github}
-                  class="flex gap-2 bg-accent/60 border-2 border-accent rounded-xl px-3 py-2 items-center hover:bg-primary transition-colors"
+                  class="flex gap-2 bg-accent/60 rounded-xl px-3 py-2 items-center hover:bg-primary transition-colors text-soft-white"
                 >
                   <GithubIcon className="size-4" />
                   Code
@@ -65,7 +67,7 @@ const projects = getProjects(lang)
               {project.demo && (
                 <a
                   href={project.demo}
-                  class="flex gap-2 bg-accent/60 border-2 border-accent rounded-xl px-3 py-2 items-center hover:bg-primary transition-colors"
+                  class="flex gap-2 bg-accent/60 rounded-xl px-3 py-2 items-center hover:bg-primary transition-colors text-soft-white"
                 >
                   <LinkIcon className="size-4" />
                   Preview
