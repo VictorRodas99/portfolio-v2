@@ -1,0 +1,24 @@
+<div class="font-bold">
+  <p class="flex gap-flex gap-2 items-center justify-center">
+    &reg; {new Date().getFullYear()}
+    <a
+      id="author"
+      class="transition-all duration-500"
+      href="https://github.com/VictorRodas99">Victor Rodas.</a
+    >
+  </p>
+</div>
+
+<script>
+  import { getRandomRGB } from '@/utils/general.tools'
+
+  const myName = document.querySelector('footer #author') as HTMLAnchorElement
+
+  if (!myName) {
+    throw new Error('#author element does not exists in footer')
+  }
+
+  setInterval(() => {
+    myName.style.color = getRandomRGB()
+  }, 1000)
+</script>

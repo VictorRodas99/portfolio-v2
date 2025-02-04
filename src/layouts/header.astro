@@ -5,6 +5,7 @@ import SUPPORTED_LANGUAGES, {
   DEFAULT_LANGUAGE,
   type Language
 } from '@/supported-languages'
+import content from '@/content/ui.json'
 
 interface Props {
   lang?: Language
@@ -16,22 +17,7 @@ if (!Object.values(SUPPORTED_LANGUAGES).includes(lang)) {
   throw new Error(`Unsupported language: ${lang}`)
 }
 
-const content = {
-  es: {
-    experience: 'Experiencia',
-    projects: 'Proyectos',
-    aboutMe: 'Sobre mí',
-    contact: 'Contacto'
-  },
-  en: {
-    experience: 'Experience',
-    projects: 'Projects',
-    aboutMe: 'About me',
-    contact: 'Contact'
-  }
-}
-
-const text = content[lang]
+const text = content.nav[lang]
 const localeUrl = getRelativeLocaleUrl(lang)
 ---
 

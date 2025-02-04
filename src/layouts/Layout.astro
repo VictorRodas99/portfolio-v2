@@ -4,6 +4,7 @@ import '@fontsource-variable/onest'
 import LavaLamp from '@/components/lava-lamp'
 import '@/css/globals.css'
 import type { Language } from '@/supported-languages'
+import Footer from './footer.astro'
 
 interface Props {
   lang: Language
@@ -39,6 +40,7 @@ const { title, description, lang } = Astro.props
     </div>
     <slot />
   </body>
+  <Footer />
 </html>
 
 <style is:global>
