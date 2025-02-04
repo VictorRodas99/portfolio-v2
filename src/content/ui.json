@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "es": {
+      "experience": "Experiencia",
+      "projects": "Proyectos",
+      "aboutMe": "Sobre mí",
+      "contact": "Contacto"
+    },
+    "en": {
+      "experience": "Experience",
+      "projects": "Projects",
+      "aboutMe": "About me",
+      "contact": "Contact"
+    }
+  }
+}
