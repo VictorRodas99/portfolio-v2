@@ -5,6 +5,7 @@ import { Group } from '@tweenjs/tween.js'
 import { makeCubes, toRadians, tRotate } from '@/utils/rubiks-cube.tools'
 import { createLights, addRendering } from '@/utils/scene'
 import { cn } from '@/utils/cn'
+import useIsBatteryLow from '@/hooks/use-is-battery-low'
 
 /**
  * @param size The size of the cube in px
@@ -21,6 +22,12 @@ export default function RubiksCube({
   const isDraggingRef = useRef(false)
   const previousMousePositionRef = useRef({ x: 0, y: 0 })
   const [isCubeRendered, setIsCubeRendered] = useState(false)
+
+  const { isDetectingBattery, isBatteryLow } = useIsBatteryLow()
+
+  if (isDetectingBattery || isBatteryLow) {
+    return null
+  }
 
   useEffect(() => {
     if (!containerRef.current) return
