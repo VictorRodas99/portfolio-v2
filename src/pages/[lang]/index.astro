@@ -10,6 +10,7 @@ import RubiksCube from '@/components/rubiks-cube'
 import SUPPORTED_LANGUAGES from '@/supported-languages'
 import { getCollection } from 'astro:content'
 import LinkedInIcon from '@/components/icons/brands'
+import { GithubIcon } from '@/components/icons/tools'
 
 export function getStaticPaths() {
   return [
@@ -45,20 +46,27 @@ const content = collection.data
           >{content.hero.subtitle.experience}</span
         >. {content.hero.subtitle.description}
       </p>
-      <nav class="flex gap-3">
-        <SocialAnchor
-          href="mailto:victormrodas99@gmail.com"
-          class="flex gap-2 items-center text-soft-white"
-        >
-          <MailPlusIcon className="size-4" />
-          {lang === SUPPORTED_LANGUAGES.spanish ? 'Contactame' : 'Contact me'}
-        </SocialAnchor>
+      <nav class="flex gap-3 flex-wrap">
         <SocialAnchor
           href="https://www.linkedin.com/in/victor-rodas-dev/"
           class="flex gap-2 items-center text-soft-white"
         >
           <LinkedInIcon className="size-4" />
           LinkedIn
+        </SocialAnchor>
+        <SocialAnchor
+          href="https://github.com/VictorRodas99"
+          class="flex gap-2 items-center text-soft-white"
+        >
+          <GithubIcon className="size-4" />
+          Github
+        </SocialAnchor>
+        <SocialAnchor
+          href="mailto:victormrodas99@gmail.com"
+          class="flex gap-2 items-center text-soft-white"
+        >
+          <MailPlusIcon className="size-4" />
+          {lang === SUPPORTED_LANGUAGES.spanish ? 'Contactame' : 'Contact me'}
         </SocialAnchor>
       </nav>
     </section>
