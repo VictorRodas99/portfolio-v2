@@ -135,7 +135,7 @@ export default function HeaderSettings({
       <DropdownMenuTrigger>
         <GearIcon className="size-[18px]" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-light-secondary dark:bg-secondary border-light-primary dark:border-primary text-soft-white border-none">
+      <DropdownMenuContent className="bg-light-primary dark:bg-secondary border-light-primary dark:border-primary text-soft-white border-none">
         <DropdownMenuLabel>{text.label}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="cursor-pointer">
@@ -151,7 +151,7 @@ export default function HeaderSettings({
               <span>{themeLabel}</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
-              <DropdownMenuSubContent className="bg-light-secondary dark:bg-secondary text-soft-white border-light-primary border-none dark:border-primary">
+              <DropdownMenuSubContent className="bg-light-primary dark:bg-secondary text-soft-white border-light-primary border-none dark:border-primary">
                 <DropdownMenuItem
                   onClick={() => handleClickOnTheme(THEMES.dark)}
                 >
