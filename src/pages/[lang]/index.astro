@@ -11,6 +11,8 @@ import SUPPORTED_LANGUAGES from '@/supported-languages'
 import { getCollection } from 'astro:content'
 import LinkedInIcon from '@/components/icons/brands'
 import { GithubIcon } from '@/components/icons/tools'
+import DownloadIcon from '@/components/icons/download'
+import { CV_LINK } from '@/constants'
 
 export function getStaticPaths() {
   return [
@@ -88,6 +90,16 @@ const content = collection.data
       <AboutMe lang={lang} />
     </section>
   </main>
+  <a
+    href={CV_LINK}
+    class="fixed z-50 bottom-12 right-12 p-3 bg-light-primary text-soft-white dark:bg-primary rounded-full grid place-items-center hover:bg-light-secondary transition-colors duration-200 shadow-sm"
+    target="_blank"
+  >
+    <span class="text-xs flex gap-2 items-center justify-center">
+      <DownloadIcon className="size-4" />
+      Mi CV
+    </span>
+  </a>
 </Layout>
 
 <style>
