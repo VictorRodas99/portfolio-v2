@@ -20,10 +20,25 @@ const { title, description, lang } = Astro.props
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
     <title>{title}</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://victormatiasrodas.vercel.app/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content="https://victormatiasrodas.vercel.app/og.jpg"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:description"
+      content="Porftolio de Víctor Rodas - Desarrollador de Software"
+    />
   </head>
   <body
     class="overflow-x-hidden bg-noon dark:bg-midnight text-soft-dark dark:text-soft-white"
